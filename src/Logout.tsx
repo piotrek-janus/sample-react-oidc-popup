@@ -5,8 +5,8 @@ import { client } from "./oidc-settings";
 
 export function LogoutCallback() {
     useEffect(() => {
-        client.signinPopupCallback().then(function() {
-            console.log("signin popup callback response success");
+        client.signoutSilentCallback().then(function() {
+            console.log("silent signout callback response success");
         }).catch(function(err) {
             console.error(err);
         });

@@ -9,9 +9,13 @@ export const settings: UserManagerSettings = {
     automaticSilentRenew: true,
     popup_redirect_uri: 'https://localhost:3000/popupCallback',
     popup_post_logout_redirect_uri: 'https://localhost:3000/logoutCallback',
+    post_logout_redirect_uri: 'https://localhost:3000/logoutCallback',
     silent_redirect_uri: 'https://localhost:3000/callback',
     filterProtocolClaims: true,
     userStore: new WebStorageStateStore({ store: window.localStorage }),
+    metadataSeed: {
+      end_session_endpoint: 'https://janus.eu.authz.cloudentity.io/janus/demo/logout'
+    }
   };
 
 export const client = new UserManager(settings);

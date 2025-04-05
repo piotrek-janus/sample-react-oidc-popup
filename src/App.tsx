@@ -47,7 +47,7 @@ function App() {
   }
 
   const logout = () => {
-    client.signoutPopup().then(function() {
+    client.signoutSilent({extraQueryParams: {redirect_to: "https://localhost:3000/logoutCallback"}}).then(function() {
       console.log("signed out");
       setUser(null);
     }).catch(function(err) {
