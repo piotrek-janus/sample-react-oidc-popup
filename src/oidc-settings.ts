@@ -5,7 +5,7 @@ export const settings: UserManagerSettings = {
     client_id: '5db70ee5e0444f8f88b7acd396a685cc',
     redirect_uri: 'https://localhost:3000/callback',
     response_type: 'code',
-    scope: 'openid profile',
+    scope: 'openid profile say-nothing say-hello',
     automaticSilentRenew: true,
     popup_redirect_uri: 'https://localhost:3000/popupCallback',
     popup_post_logout_redirect_uri: 'https://localhost:3000/logoutCallback',

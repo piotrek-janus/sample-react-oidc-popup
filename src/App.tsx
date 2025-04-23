@@ -83,10 +83,27 @@ interface LoggedInProps {
 }
 
 const LoggedIn = (props: LoggedInProps) => {
+  const [hello, setHello] = useState("");
+  const style: any = {fontSize: "0.4em", border: "solid thin white", padding: "5px", textAlign: "left", background: "black"}
+  const callResourceServer = async () => {
+    const url = "http://localhost:7777/hello";
+    const token = props.user.access_token;
+    const resp = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+    setHello(JSON.stringify(await resp.json(), null, 2));
+    
+  }
+
   return (
     <div>
       <p>Logged in as {props.user.profile?.name}</p>
       <button onClick={props.logout}>Logout</button>
+      <button onClick={callResourceServer}>Say Hello!</button>
+      {hello && <pre style={style}>{hello}</pre>}
     </div>
   );
 }
